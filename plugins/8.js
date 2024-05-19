@@ -44,7 +44,7 @@ let handler = async (m, { conn, usedPrefix }) => {
 };
 
 // إضافة وظيفة التلميح
-handler.hint = async (m, { conn }) => {
+let hintHandler = async (m, { conn }) => {
     let id = m.chat;
     if (id in conn.tekateki) {
         let hint = conn.tekateki[id][1].hint;
@@ -56,6 +56,7 @@ handler.hint = async (m, { conn }) => {
 
 handler.help = ['acertijo', 'hint'];
 handler.tags = ['game'];
-handler.command = ['88'];
+handler.command = /^(7|8)$/i;
+hintHandler.command = /^(تلميح)$/i;
 
-export default handler;
+export { handler, hintHandler };
