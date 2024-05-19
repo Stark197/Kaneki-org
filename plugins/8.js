@@ -4,23 +4,12 @@ let timeout = 60000; // مدة الوقت 60 ثانية
 let poin = 500; // نقاط الجائزة
 const QUESTIONS_URL = 'https://gist.githubusercontent.com/Stark197/ba4ad15cc0f4680764d42dea9387205e/raw/761cc078525523094caf55a4a23bde3010969016/gistfile1.txt';
 
-let handler = async (m, { conn, usedPrefix, command }) => {
+let handler = async (m, { conn, usedPrefix }) => {
     conn.tekateki = conn.tekateki ? conn.tekateki : {};
     let id = m.chat;
-
-    if (command === 'hint') {
-        if (id in conn.tekateki) {
-            let hint = conn.tekateki[id][1].hint;
-            conn.reply(m.chat, `*التلميح:* ${hint}`, conn.tekateki[id][0]);
-        } else {
-            conn.reply(m.chat, 'لا يوجد سؤال حالي لعرض تلميح.', m);
-        }
-        return;
-    }
-
     if (id in conn.tekateki) {
         conn.reply(m.chat, '❐┃لم يتم الاجابة علي السؤال بعد┃❌ ❯', conn.tekateki[id][0]);
-        return;
+        throw false;
     }
 
     try {
@@ -54,8 +43,8 @@ let handler = async (m, { conn, usedPrefix, command }) => {
     }
 };
 
-handler.help = ['acertijo', 'hint'];
+handler.help = ['acertijo'];
 handler.tags = ['game'];
-handler.command = ['8'];
+handler.command = /^(8|88)$/i;
 
 export default handler;
