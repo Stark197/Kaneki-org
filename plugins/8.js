@@ -56,6 +56,6 @@ handler.hint = async (m, { conn }) => {
 
 handler.help = ['acertijo', 'hint'];
 handler.tags = ['game'];
-handler.command = ['88', '8', 'hint'];
+handler.command = ['88'];
 
 export default handler;
