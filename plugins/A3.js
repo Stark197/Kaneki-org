@@ -1,3 +1,7 @@
+let gameActive = false;
+let players = [];
+let impostorIndex = -1;
+
 let joinImpostorGame = async (m, { conn }) => {
     let id = m.chat;
     if (!gameActive) {
@@ -20,7 +24,7 @@ let joinImpostorGame = async (m, { conn }) => {
 }
 
 joinImpostorGame.help = ['انضم']
-joinImpostorGame.tags = ['among']
+joinImpostorGame.tags = ['game']
 joinImpostorGame.command = /^انضم$/i
 
 export default joinImpostorGame;
