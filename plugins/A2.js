@@ -1,3 +1,7 @@
+let gameActive = true;
+let players = [];
+let impostorIndex = -1;
+
 let guessImpostor = async (m, { conn, command }) => {
     let id = m.chat;
     if (!gameActive) {
