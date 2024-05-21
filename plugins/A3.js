@@ -1,4 +1,4 @@
-let gameActive = false;
+let gameActive = true;
 let players = [];
 let impostorIndex = -1;
 
