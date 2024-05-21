@@ -26,8 +26,8 @@ let guessImpostor = async (m, { conn, command }) => {
     }
 }
 
-guessImpostor.help = ['خمن <رقم>']
+guessImpostor.help = ['اتهام <رقم>']
 guessImpostor.tags = ['among']
-guessImpostor.command = /^خمن \d+$/i
+guessImpostor.command = /^اتهام \d+$/i
 
 export default guessImpostor;
