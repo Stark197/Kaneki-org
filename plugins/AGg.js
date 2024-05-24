@@ -1,3 +1,5 @@
+let fetch = require('node-fetch');
+
 let timeout = 60000;
 let points = 500;
 
@@ -11,7 +13,6 @@ let handler = async (m, { conn, command, usedPrefix }) => {
     }
 
     try {
-        // روابط الجست الأربعة
         let urls = [
             'https://gist.githubusercontent.com/Kyutaka101/98d564d49cbf9b539fee19f744de7b26/raw/f2a3e68bbcdd2b06f9dbd5f30d70b9fda42fec14/guessflag', // صور
             'https://gist.githubusercontent.com/Kyutaka101/dc88a825aa085b6c75f4a716590eca11/raw/6b97b082d24c2cd24597165dfef876167e424bc1/gistfile1.txt', // فيديوهات
@@ -19,16 +20,14 @@ let handler = async (m, { conn, command, usedPrefix }) => {
             'https://gist.githubusercontent.com/Stark197/ba4ad15cc0f4680764d42dea9387205e/raw/761cc078525523094caf55a4a23bde3010969016/gistfile1.txt'  // أسئلة
         ];
 
-        // اختيار رابط عشوائي
         let randomUrl = urls[Math.floor(Math.random() * urls.length)];
 
         let response = await fetch(randomUrl);
         let src = await response.json();
         let json = src[Math.floor(Math.random() * src.length)];
 
-        // إعداد الوصف بناءً على نوع المحتوى
         let typeDescription, question;
-        if (randomUrl.includes('username1')) {
+        if (randomUrl.includes('guessflag')) {
             typeDescription = "النوع: صورة";
             question = "السؤال: حدد من في الصورة";
         } else if (randomUrl.includes('username2')) {
@@ -42,7 +41,6 @@ let handler = async (m, { conn, command, usedPrefix }) => {
             question = `السؤال: ${json.question}`;
         }
 
-        // إعداد التسمية مع الوصف
         let caption = `
 *${command.toUpperCase()}*
 ❐↞┇${typeDescription}┇
@@ -55,17 +53,13 @@ let handler = async (m, { conn, command, usedPrefix }) => {
         `.trim();
 
         let message;
-        if (randomUrl.includes('username1')) {
-            // إرسال صورة
+        if (randomUrl.includes('guessflag')) {
             message = await conn.sendFile(m.chat, json.url, '', caption, m);
         } else if (randomUrl.includes('username2')) {
-            // إرسال فيديو
             message = await conn.sendFile(m.chat, json.url, '', caption, m, { asDocument: true });
         } else if (randomUrl.includes('username3')) {
-            // إرسال مقطع صوتي
             message = await conn.sendFile(m.chat, json.url, '', caption, m, { asDocument: true });
         } else if (randomUrl.includes('username4')) {
-            // إرسال سؤال نصي
             message = await conn.reply(m.chat, `${question}\n\n${caption}`, m);
         }
 
