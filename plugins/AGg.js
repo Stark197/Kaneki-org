@@ -18,6 +18,10 @@ let startImpostorGame = async (m, { conn }) => {
     conn.reply(m.chat, 'اللعبة بدأت! يرجى إرسال ".انضم" للانضمام إلى اللعبة.');
 }
 
+startImpostorGame.help = ['امبوستر'];
+startImpostorGame.tags = ['game'];
+startImpostorGame.command = /^0$/i;
+
 // الانضمام إلى اللعبة
 let joinImpostorGame = async (m, { conn }) => {
     if (!gameState.gameActive) {
@@ -38,6 +42,10 @@ let joinImpostorGame = async (m, { conn }) => {
         conn.reply(m.chat, 'اللعبة جاهزة! ارسل ".اتهام <رقم>" لتخمين من هو المحتال.');
     }
 }
+
+joinImpostorGame.help = ['انضم'];
+joinImpostorGame.tags = ['game'];
+joinImpostorGame.command = /^00$/i;
 
 // تخمين المحتال
 let guessImpostor = async (m, { conn, text }) => {
@@ -67,6 +75,10 @@ let guessImpostor = async (m, { conn, text }) => {
     }
 }
 
+guessImpostor.help = ['اتهام <رقم>'];
+guessImpostor.tags = ['among'];
+guessImpostor.command = /^000 \d+$/i;
+
 // إيقاف اللعبة
 let stopImpostorGame = async (m, { conn }) => {
     if (!gameState.gameActive) {
@@ -81,32 +93,13 @@ let stopImpostorGame = async (m, { conn }) => {
     conn.reply(m.chat, 'تم إيقاف اللعبة.');
 }
 
-// تسجيل الأوامر
-const commands = [
-    {
-        handler: startImpostorGame,
-        help: ['امبوستر'],
-        tags: ['game'],
-        command: /^0$/i
-    },
-    {
-        handler: joinImpostorGame,
-        help: ['انضم'],
-        tags: ['game'],
-        command: /^00$/i
-    },
-    {
-        handler: guessImpostor,
-        help: ['اتهام <رقم>'],
-        tags: ['among'],
-        command: /^000 \d+$/i
-    },
-    {
-        handler: stopImpostorGame,
-        help: ['اوقف اللعبة'],
-        tags: ['game'],
-        command: /^0000$/i
-    }
-]
+stopImpostorGame.help = ['اوقف اللعبة'];
+stopImpostorGame.tags = ['game'];
+stopImpostorGame.command = /^اوقف اللعبة$/i;
 
-export default commands;
+export default {
+    startImpostorGame,
+    joinImpostorGame,
+    guessImpostor,
+    stopImpostorGame
+};
