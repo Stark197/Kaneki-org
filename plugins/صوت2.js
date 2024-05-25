@@ -1,6 +1,6 @@
 import { google } from 'googleapis';
 
-const apiKey = 'a6b9325ca06c46913ad9535abb82828b6e65847a';
+const apiKey = 'AIzaSyBju01oZkkC8g5DtHf5GU26JK9h6QSt6HA';
 const drive = google.drive({ version: 'v3', auth: apiKey });
 
 let handler = async (m) => {
