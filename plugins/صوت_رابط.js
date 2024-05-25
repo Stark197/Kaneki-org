@@ -1,6 +1,5 @@
-import uploadFile from '../lib/uploadFile.js'
-import uploadImage from '../lib/uploadImage.js'
 import fetch from 'node-fetch'
+import FormData from 'form-data'
 
 var handler = async (m) => {
   let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
@@ -10,45 +9,48 @@ var handler = async (m) => {
   let mime = (q.msg || q).mimetype || ''
   
   if (!mime) throw '*⚠️ RESPONDA A UN ARCHIVO*'
-  m.react(done)
 
   let media = await q.download()
-  let isTele = /image\/(png|jpe?g|gif)|video\/mp4/.test(mime)
   let isAudio = /audio\/(mp3|wav|ogg)/.test(mime)
   
-  let link
-  if (isTele) {
-    link = await uploadImage(media)
-  } else if (isAudio) {
-    link = await convertAudioToUrl(media)
-  } else {
-    link = await uploadFile(media)
-  }
+  if (!isAudio) throw '*⚠️ SOLO SE PERMITEN ARCHIVOS DE AUDIO*'
 
-  let info = ` *🗂️ ENLACE:*\n${link}\n
+  try {
+    let link = await convertAudioToUrl(media, mime)
+    let info = ` *🗂️ ENLACE:*\n${link}\n
 *⚖️ TAMAÑO:*\n${media.length} bytes\n
-*🚀 EXPIRACION:*\n ${isTele ? '✅ NO EXPIRA' : '⚠️ DESCONOCIDO'}\n
+*🚀 EXPIRACION:*\n⚠️ DESCONOCIDO\n
 *🔰 ACORTADO:*\n${await shortUrl(link)}`
 
-  conn.reply(m.chat, info, m, { contextInfo: { externalAdReply: { mediaUrl: ig, mediaType: 2, title: wm, body: azami, thumbnail: await (await fetch(link)).buffer(), sourceUrl: link } } })
+    conn.reply(m.chat, info, m, { contextInfo: { externalAdReply: { mediaUrl: link, mediaType: 2, title: 'FreeConvert Link', body: 'Link generated', thumbnail: await (await fetch(link)).buffer(), sourceUrl: link } } })
+  } catch (error) {
+    console.error('Error converting audio:', error)
+    conn.reply(m.chat, 'Failed to convert audio. Please try again.', m)
+  }
 }
 
 handler.help = ['tourl']
 handler.tags = ['transformador']
-handler.command = /^(99|9)$/i
+handler.command = ['99']
 
 handler.limit = true
 
 export default handler
 
-async function convertAudioToUrl(media) {
+async function convertAudioToUrl(media, mime) {
   const freeConvertAPIKey = 'https://api.freeconvert.com/v1/process/jobs'
+  
+  const formData = new FormData()
+  formData.append('file', media, {
+    filename: 'audio.' + mime.split('/')[1],
+    contentType: mime
+  })
 
   const body = {
     tasks: {
       import: {
         operation: 'import/upload',
-        file: media.toString('base64')
+        file: formData
       },
       convert: {
         operation: 'convert',
@@ -65,8 +67,8 @@ async function convertAudioToUrl(media) {
   const response = await fetch('https://api.freeconvert.com/v1/process/jobs', {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json',
-      'x-api-key': freeConvertAPIKey
+      'x-api-key': freeConvertAPIKey,
+      'Content-Type': 'application/json'
     },
     body: JSON.stringify(body)
   })
