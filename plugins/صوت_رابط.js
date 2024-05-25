@@ -38,7 +38,7 @@ handler.limit = true
 export default handler
 
 async function convertAudioToUrl(media, mime) {
-  const freeConvertAPIKey = 'https://api.freeconvert.com/v1/process/jobs'
+  const freeConvertAPIKey = 'https://api.freeconvert.com/v1'
   
   const formData = new FormData()
   formData.append('file', media, {
@@ -64,7 +64,7 @@ async function convertAudioToUrl(media, mime) {
     }
   }
 
-  const response = await fetch('https://api.freeconvert.com/v1/process/jobs', {
+  const response = await fetch('https://api.freeconvert.com/v1', {
     method: 'POST',
     headers: {
       'x-api-key': freeConvertAPIKey,
