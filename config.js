@@ -24,7 +24,7 @@ let wibh = moment.tz('Asia/Jakarta').format('HH')
     })
          
 /*============== SOCIAL ==============*/
-global.sig = 'https://instagram.com/rapik_gimang' //instagram
+global.sig = 'https://instagram.com/salahsh96' //instagram
 global.sgh = 'https://github.com/' //github
 global.sgc = 'https://chat.whatsapp.com/K0JUitfx7Wb9w8ZxAwLrjr' //group whatsapp
 global.saluran = 'https://whatsapp.com/channel/0029VaJHq2XFSAsz4dtOTE0T' //saluran whatsapp
@@ -35,24 +35,24 @@ global.sdc = 'https://discord.gg/fu2BQ5RZ' //discord
 global.snh = 'https://nhentai.net/' //nhentai
 
 /*============== PAYMENT ==============*/
-global.pdana = '083181666350' //pulsa1
-global.ppulsa = '083817914073' //pulsa2
-global.povo = '083181666350' //ovo
-global.gopay = '083181666350' //gopay
-global.dana = '083181666350' //dana
+global.pdana = '212602272422' //pulsa1
+global.ppulsa = '212602272422' //pulsa2
+global.povo = '212602272422' //ovo
+global.gopay = '212602272422' //gopay
+global.dana = '212602272422' //dana
 global.sid = 's.id' //s.id
 global.psaweria = 'https://saweria.com/ReyzXd' //saweria
 
 /*============== NOMOR ==============*/
-global.nomorwa = '6281312651566' //whatsapp
-global.nomorbot = '6283870640516' //nomor Bot
-global.nomorown = '6281312651566' //nomor Owner
-global.namebot = 'ᴇʟᴀɪɴᴀ ᴀɪ' //nama Bot
-global.nameown = '尺卂千丨Ҩツ' //nama Owner
+global.nomorwa = '212602272422' //whatsapp
+global.nomorbot = '212630114032' //nomor Bot
+global.nomorown = '212602272422' //nomor Owner
+global.namebot = 'KANEKI V16' //nama Bot
+global.nameown = 'SALAH' //nama Owner
 
 /*============== STAFF ==============*/
 global.owner = [
-  ['6281312651566', 'RAPIKZ', true] //creator/owner
+  ['212602272422', 'RAPIKZ', true] //creator/owner
 ] //put your number here
 global.mods = [] //moderator
 global.prems = [] //prem bukan disini
