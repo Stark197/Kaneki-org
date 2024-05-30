@@ -1,7 +1,7 @@
 let handler = async (m, { conn }) => {
   let werewolf = global.db.data.werewolf || {}
   if (typeof werewolf.status != "undefined" && werewolf.status == "playing") {
-    conn.reply(m.chat, "Werewolf game is already in progress", m)
+    conn.reply(m.chat, "لعبة المستذئبين نشطة🐺", m)
     return
   }
   werewolf.status = "playing"
@@ -10,11 +10,11 @@ let handler = async (m, { conn }) => {
   werewolf.wolves = []
   werewolf.votes = {}
   global.db.data.werewolf = werewolf
-  conn.reply(m.chat, "Werewolf game started. Please send '.wwjoin' to join the game", m)
+  conn.reply(m.chat, "لعبة المستذئبين جاهزة المرجو كتابة '.مستذئب_انضم' للإنضمام للعبة", m)
 }
 handler.help = ['ww']
-handler.tags = ['game']
-handler.command = /^ww$/i
+handler.tags = ['العاب']
+handler.command = /^مستذئب$/i
 handler.owner = false
 handler.mods = false
 handler.premium = false
