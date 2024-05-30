@@ -1,17 +1,17 @@
 import fetch from 'node-fetch'
 
 let handler = async (m, { conn, text }) => {
-	if (!text) throw 'Input Twitter URL'
+	if (!text) throw 'لا تنسى الرابط ياحب\nاللهم اني ابرئ ذمتي من  أي شيئ قمت بتنزيله'
 	let res = await twitterDl(text)
-	await m.reply('_In progress, please wait..._')
+	await m.reply('انتظر قليلا....')
 	for (let x = 0; x < res.media.length; x++) {
 		let caption = x === 0 ? res.caption.replace(/https:\/\/t.co\/[a-zA-Z0-9]+/gi, '').trim() : ''
 		conn.sendFile(m.chat, res.media[x].url, '', caption, m)
 	}
 }
 handler.help = ['twitter']
-handler.tags = ['downloader']
-handler.command = /^((twt|twitter)(dl)?)$/i
+handler.tags = ['التحميلات']
+handler.command = ['تويتر']
 
 export default handler
 
