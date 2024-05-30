@@ -1,7 +1,7 @@
 import uploadImage from '../lib/uploadImage.js'
 import { createSticker } from 'wa-sticker-formatter'
 import fs from 'fs'
-const effects = ['jail', 'gay', 'glass', 'wasted' ,'triggered']
+const effects = ['سجين', 'الوان', 'زجاج', 'خاسر' ,'triggered']
 
 let handler = async (m, { conn, args, text, usedPrefix, command }) => {
     let q = m.quoted ? m.quoted : m
@@ -26,12 +26,12 @@ ${effects.map(effect => `_> ${effect}_`).join('\n')}
     		console.log(e)
     	}
     } else {
-    	m.reply(`Kirim Gambar Dengan Caption *${usedPrefix + command}* Atau Tag Gambar Yang Sudah Dikirim`)
+    	m.reply(`قم باستخدام الأمر التالي مرفقا بالصورة *${usedPrefix + command}*او قم بالرد عليها`)
     }
 }
 
 handler.help = ['filter']
-handler.tags = ['maker']
-handler.command = /^(filter)$/i
+handler.tags = ['ادوات']
+handler.command = /^(فلاتر)$/i
 
 export default handler
