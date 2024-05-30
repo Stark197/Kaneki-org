@@ -5,7 +5,7 @@ let formatSize = sizeFormatter({
 })
 
 let handler = async (m, { conn, args }) => {
-	if (!args[0]) throw 'Input URL' 
+	if (!args[0]) throw 'لا تنسى الرابط🚀' 
 	GDriveDl(args[0]).then(async (res) => {
 		if (!res) throw res
 		await m.reply(JSON.stringify(res, null, 2))
@@ -13,16 +13,16 @@ let handler = async (m, { conn, args }) => {
 	})
 }
 handler.help = ['gdrive'].map(v => v + ' <url>')
-handler.tags = ['downloader']
-handler.command = /^gd(rive(d(own(load(er)?)?|l))?|dle|l)$/i
+handler.tags = ['التحميلات']
+handler.command = ['درايف']
 
 export default handler
 
 async function GDriveDl(url) {
 	let id
-	if (!(url && url.match(/drive\.google/i))) throw 'Invalid URL'
+	if (!(url && url.match(/drive\.google/i))) throw 'رابط غير مدعوم'
 	id = (url.match(/\/?id=(.+)/i) || url.match(/\/d\/(.*?)\//))[1]
-	if (!id) throw 'ID Not Found'
+	if (!id) throw 'ID غير موجود'
 	let res = await fetch(`https://drive.google.com/uc?id=${id}&authuser=0&export=download`, {
 		method: 'post',
 		headers: {
@@ -37,7 +37,7 @@ async function GDriveDl(url) {
 		}
 	})
 	let { fileName, sizeBytes, downloadUrl } =  JSON.parse((await res.text()).slice(4))
-	if (!downloadUrl) throw 'Link Download Limit!'
+	if (!downloadUrl) throw 'رابط التنزيل!'
 	let data = await fetch(downloadUrl)
 	if (data.status !== 200) throw data.statusText
 	return { downloadUrl, fileName, fileSize: formatSize(sizeBytes), mimetype: data.headers.get('content-type') }
