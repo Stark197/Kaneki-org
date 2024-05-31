@@ -101,15 +101,15 @@ global.titlebot = '🎋 ┊ ☇𝙰𝚉𝙰𝚇⥤ ᴡʜᴀᴛsᴀᴘᴘ ʙᴏ�
 global.author = global.wm
 
 /*============== THUMB ==============*/
-global.elaina = 'https://telegra.ph/file/b1e4fe6d4a5c64d3b34c8.jpg'
+global.elaina = 'https://telegra.ph/file/abdd4cca1d539daadac82.jpg'
 
 /*============== LOGO ==============*/
-global.thumb = 'https://telegra.ph/file/cce9ab4551f7150f1970d.jpg' //thumbnail
-global.thumb2 = 'https://telegra.ph/file/26b515d170f1e599f78a7.jpg'
-global.thumbbc = 'https://telegra.ph/file/05f874dc87f7e27fa8127.jpg' //broadcast
-global.giflogo = 'https://telegra.ph/file/a46ab7fa39338b1f54d5a.mp4'
-global.thumblvlup = 'https://telegra.ph/file/a3e66e0fa840b08236c75.jpg'
-global.hwaifu = ['https://i.pinimg.com/originals/ed/34/f8/ed34f88af161e6278993e1598c29a621.jpg',
+global.thumb = 'https://telegra.ph/file/abdd4cca1d539daadac82.jpg' //thumbnail
+global.thumb2 = 'https://telegra.ph/file/abdd4cca1d539daadac82.jpg'
+global.thumbbc = 'https://telegra.ph/file/abdd4cca1d539daadac82.jpg' //broadcast
+global.giflogo = 'https://telegra.ph/file/abdd4cca1d539daadac82.jpg'
+global.thumblvlup = 'https://telegra.ph/file/abdd4cca1d539daadac82.jpg'
+global.hwaifu = ['https://telegra.ph/file/abdd4cca1d539daadac82.jpg',
 'https://i.pinimg.com/originals/88/46/88/884688def830c43648f88154836a8b05.jpg',
 'https://i.pinimg.com/originals/32/2c/a4/322ca456fa2cdec4b717895a65adfa8d.jpg',
 'https://i.pinimg.com/originals/42/88/f1/4288f17ee25b909430fb7e707d961d0b.jpg',
@@ -126,9 +126,8 @@ global.flaaa = [
 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=sketch-name&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&fillTextType=1&fillTextPattern=Warning!&fillColor1Color=%23f2aa4c&fillColor2Color=%23f2aa4c&fillColor3Color=%23f2aa4c&fillColor4Color=%23f2aa4c&fillColor5Color=%23f2aa4c&fillColor6Color=%23f2aa4c&fillColor7Color=%23f2aa4c&fillColor8Color=%23f2aa4c&fillColor9Color=%23f2aa4c&fillColor10Color=%23f2aa4c&fillOutlineColor=%23f2aa4c&fillOutline2Color=%23f2aa4c&backgroundColor=%23101820&text='] 
 
 /*============== TEXT ==============*/
-global.wait = '🚩 ʟᴏᴀᴅɪɴɢ ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ...';
-function sendwaitMessage(m, conn, caption) {
-    conn.sendMessage(m.chat, {
+global.wait = '🚩 انتظر قليلا...';
+conn.sendMessage(m.chat, {
         text: caption,
         contextInfo: {
             externalAdReply: {
@@ -144,10 +143,10 @@ function sendwaitMessage(m, conn, caption) {
         }
     }, { quoted: alok });
 }
-global.eror = '```404 error```'
+global.eror = '```هناك خطأ```'
 global.dtu = 'ɪɴꜱᴛᴀɢʀᴀᴍ'
-global.dtc = 'ᴄᴀʟʟ ᴏᴡɴᴇʀ'
-global.phn = '+62 831-8166-6350'
+global.dtc = 'تواصل مع المطور'
+global.phn = '+212602272422'
 
 /*=========== TYPE DOCUMENT ===========*/
 global.dpptx = 'application/vnd.openxmlformats-officedocument.presentationml.presentation'
@@ -157,7 +156,7 @@ global.dpdf = 'application/pdf'
 global.drtf = 'text/rtf'
 global.djson = 'application/json'
 
-global.thumbdoc = 'https://telegra.ph/file/6e45318d7c76f57e4a8bd.jpg'
+global.thumbdoc = 'https://telegra.ph/file/abdd4cca1d539daadac82.jpg'
 
 /*=========== FAKE SIZE ===========*/
 global.fsizedoc = '99999999999999' // default 10TB
