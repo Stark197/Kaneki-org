@@ -8,28 +8,20 @@ let handler = async (m, {
     conn,
     text
 }) => {
-    if (!text) throw "✳️ What do you want me to search for on YouTube?"
+    if (!text) throw "*✳️ على ماذا تريد البحث في يوتيوب*\n*مثال: .يوتيوب كانيكي  amv*?"
     let results = await yts(text)
     let tes = results.all
     let teks = results.all.map(v => {
         switch (v.type) {
             case "video":
                 return `
-📹 *Type:* ${v.type}
-🆔 *VideoId:* ${v.videoId}
-🔗 *URL:* ${v.url}
-📺 *Title:* ${v.title}
-📝 *Description:* ${v.description}
-🖼️ *Image:* ${v.image}
-🖼️ *Thumbnail:* ${v.thumbnail}
-⏱️ *Seconds:* ${v.seconds}
-⏰ *Timestamp:* ${v.timestamp}
-⏲️ *Duration Timestamp:* ${v.duration.timestamp}
-⌛ *Duration Seconds:* ${v.duration.seconds}
-⌚ *Ago:* ${v.ago}
-👀 *Views:* ${formatNumber(v.views)}
-👤 *Author Name:* ${v.author.name}
-🔗 *Author URL:* ${v.author.url}
+📹 *النوع:* ${v.type}
+🔗 *الرابط:* ${v.url}
+📺 *العنوان:* ${v.title}
+🖼️ *الصورة:* ${v.image}
+🖼️ *الخلفية:* ${v.thumbnail}
+⏰ *الوقت:* ${v.timestamp}
+👤 *الاسم:* ${v.author.name}
    `.trim()
             case "canal":
                 return `
@@ -38,7 +30,7 @@ let handler = async (m, {
 📽️ ${v.videoCount} videos
 `.trim()
         }
-    }).filter(v => v).join("\n\n________________________\n\n")
+    }).filter(v => v).join("\n\n*❉━━━━─━|⊰🇲🇦⊱|━─━━━━❉*\n\n")
     
         let ytthumb = await (await conn.getFile(tes[0].thumbnail)).data
         let msg = await generateWAMessageFromContent(m.chat, {
@@ -48,7 +40,7 @@ let handler = async (m, {
                 contextInfo: {
                     mentionedJid: [m.sender],
                     externalAdReply: {
-                        body: "S E A R C H",
+                        body: "⟮𝙺𝙰𝙽𝙴𝙺𝙸⤹𝙱𝙾𝚃❯",
                         containsAutoReply: true,
                         mediaType: 1,
                         mediaUrl: tes[0].url,
@@ -60,7 +52,7 @@ let handler = async (m, {
                         sourceUrl: tes[0].url,
                         thumbnail: ytthumb,
                         thumbnailUrl: tes[0].thumbnail,
-                        title: htki + " Y O U T U B E " + htka
+                        title: htki + " 𝙺 𝙰 𝙽 𝙴 𝙺 𝙸 " + htka
                     }
                 }
             }
@@ -69,9 +61,9 @@ let handler = async (m, {
         })
         await conn.relayMessage(m.chat, msg.message, {})
 }
-handler.help = ["", "earch"].map(v => "yts" + v + " <pencarian>")
-handler.tags = ["tools"]
-handler.command = /^y(outubesearch|ts(earch)?)$/i
+handler.help = ["يوتيوب"].map(v => "يوتيوب" + v + " <pencarian>")
+handler.tags = ["التحميلات"]
+handler.command = ['يوتيوب']
 export default handler
 
 function formatNumber(num) {
