@@ -5,7 +5,7 @@ let handler = async (m, { conn, text }) => {
   if (id in conn.math) {
     clearTimeout(conn.math[id][3])
     delete conn.math[id]
-    m.reply('Hmmm...ngecheat?')
+    m.reply('اكتب العملية التي تريد حسابها?')
     return
   }
   let val = text
@@ -37,12 +37,12 @@ let handler = async (m, { conn, text }) => {
     }
   } catch (e) {
     if (e === undefined) throw 'Isinya?'
-    throw 'Format salah, hanya 0-9 dan Simbol -, +, *, /, ×, ÷, π, e, (, ), ^, √ yang disupport'
+    throw ' 0-9 استخدم الرموز التالية -, +, *, /, ×, ÷, π, e, (, ), ^, √ yang disupport'
   }
 }
 handler.help = ['calc <expression>']
-handler.tags = ['tools']
-handler.command = /^(calc(ulat(e|or))?|kalk(ulator)?)$/i
+handler.tags = ['الادوات']
+handler.command = ['حاسبة']
 handler.exp = 100
 
 export default handler
