@@ -126,23 +126,7 @@ global.flaaa = [
 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=sketch-name&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&fillTextType=1&fillTextPattern=Warning!&fillColor1Color=%23f2aa4c&fillColor2Color=%23f2aa4c&fillColor3Color=%23f2aa4c&fillColor4Color=%23f2aa4c&fillColor5Color=%23f2aa4c&fillColor6Color=%23f2aa4c&fillColor7Color=%23f2aa4c&fillColor8Color=%23f2aa4c&fillColor9Color=%23f2aa4c&fillColor10Color=%23f2aa4c&fillOutlineColor=%23f2aa4c&fillOutline2Color=%23f2aa4c&backgroundColor=%23101820&text='] 
 
 /*============== TEXT ==============*/
-global.wait = '🚩 انتظر قليلا...';
-conn.sendMessage(m.chat, {
-        text: caption,
-        contextInfo: {
-            externalAdReply: {
-                mediaUrl: '',
-                mediaType: 1,
-                title: '',
-                body: 'K A N E K I V 1 6',
-                thumbnailUrl: 'https://telegra.ph/file/27f1cc911b1fe28ae683f.jpg',
-                sourceUrl: 'https://whatsapp.com/channel/0029Vag9bvrLSmbRE2I5Oj2h',
-                renderLargerThumbnail: true,
-                showAdAttribution: true
-            }
-        }
-    }, { quoted: alok });
-}
+global.wait = '🚩 انتظر قليلا...\n*تابع قناة المطور لكي تستفيد:*\n> https://whatsapp.com/channel/0029Vag9bvrLSmbRE2I5Oj2h'
 global.eror = '```هناك خطأ```'
 global.dtu = 'ɪɴꜱᴛᴀɢʀᴀᴍ'
 global.dtc = 'تواصل مع المطور'
