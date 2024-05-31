@@ -76,27 +76,27 @@ let handler = async (m, { conn, text, args, command, usedPrefix }) => {
         }
 
         if (asd[0].imgSrc.length === 0) {
-            throw 'Gambar tidak ditemukan';
+            throw 'الصورة غير موجودة';
         }
 
-        m.reply('Tunggu sebentar, sedang mengirim gambar...');
+        m.reply('انتظر قليلا سوف ارسل لك الصور...');
         for (let i of asd[0].imgSrc) {
             try {
                 await conn.sendFile(m.chat, i, '', null, m);
             } catch (e) {
                 console.error(e);
-                m.reply('Terjadi error saat mengirim gambar, mencoba lagi...');
+                m.reply('حدث خطأ عند استيراد الصور حاول مجددا');
             }
         }
-        m.reply(`Tetap support terus ${global.namebot}\njangan lupa donasi dibawah nomer bot ini ${global.nomorown}`)
+        m.reply(`استمر في  دعم${global.namebot}\n استغفر الله و اتوب اليه${global.nomorown}`)
     } catch (error) {
-        m.reply('Ada yang error, hubungi owner untuk memperbaikinya');
+        m.reply('هناك خطأ اتصل بالمالك لاصلاحه');
         console.error(error); 
     }
 }
 
 handler.help = ['tiktokimg / ttimg <url>']
-handler.tags = ['downloader']
-handler.command = /^(ttimg|tiktokimg)$/i
+handler.tags = ['التحميلات']
+handler.command = ['تيك_صور']
 
 export default handler
