@@ -127,8 +127,7 @@ global.flaaa = [
 
 /*============== TEXT ==============*/
 global.wait = '🚩 ʟᴏᴀᴅɪɴɢ ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ...';
-
-function sendLoadingMessage(m, conn, caption) {
+function sendwaitMessage(m, conn, caption) {
     conn.sendMessage(m.chat, {
         text: caption,
         contextInfo: {
@@ -145,9 +144,6 @@ function sendLoadingMessage(m, conn, caption) {
         }
     }, { quoted: alok });
 }
-
-// مثال على كيفية استخدام الدالة
-sendLoadingMessage(m, conn, global.wait);
 global.eror = '```404 error```'
 global.dtu = 'ɪɴꜱᴛᴀɢʀᴀᴍ'
 global.dtc = 'ᴄᴀʟʟ ᴏᴡɴᴇʀ'
