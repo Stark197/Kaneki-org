@@ -4,7 +4,7 @@ let handler = async(m) => {
     if (m.isGroup) who = m.mentionedJid[0] ? m.mentionedJid[0] : m.sender
     else who = m.sender
     let url = await conn.profilePictureUrl(who, 'image')
-    await conn.sendFile(m.chat, url, 'profile.jpg', `لقد قامو بسرقة قروفايلك يا\n@${who.split`@`[0]}`, m, null, { mentions: [who]})
+    await conn.sendFile(m.chat, url, 'profile.jpg', `*لقد قامو بسرقة بروفايلك يا*\n@${who.split`@`[0]}`, m, null, { mentions: [who]})
 }
 handler.command = ['بروفايل']
 handler.help = ['بروفايل [@users]']
