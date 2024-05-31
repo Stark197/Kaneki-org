@@ -1,7 +1,7 @@
 import ytdl from "ytdl-core";
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
-	if (!text) return m.reply(`*Example:* .${command} https://www.youtube.com/xxxxxxx`);
+	if (!text) return m.reply(`*مثال:* .${command} https://www.youtube.com/xxxxxxx`);
 	conn.sendMessage(m.chat, { react: { text: '🕒', key: m.key }})
 	let obj = await ytmp3(text);
 	let title = obj.meta.title;
@@ -13,8 +13,8 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 };
 
 handler.help = ['ytmp4']
-handler.tags = ['downloader']
-handler.command = ['ytmp4', 'ytv']
+handler.tags = ['التحميلات']
+handler.command = ['فيديو']
 export default handler 
 
 async function ytmp3(url) {
