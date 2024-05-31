@@ -30,12 +30,12 @@ let name = await conn.getName(who)
   let media = await q.download()
   let isTele = /image\/(png|jpe?g|gif)|video\/mp4/.test(mime)
   let link = await (isTele ? uploadImage : uploadFile)(media)
-  let caption = `🚩 *ʟɪɴᴋ:*
+  let caption = `🚩 *رابط:*
 ${link}
-☘️ *sɪᴢᴇ :* ${media.length} Byte
-🍁 *ᴇxᴘɪʀᴇᴅ :* ${isTele ? 'No Expiry Date' : 'Unknown'}
+☘️ *sɪᴢᴇ :* ${media.length} بايت
+🍁 *ᴇxᴘɪʀᴇᴅ :* ${isTele ? 'بدون انتهاء صلاحية' : 'Unknown'}
 
-– *s ʜ ᴏ ʀ ᴛ :* ${await shortUrl(link)}`
+– *تفضل الرابط يا حب💜 :* ${await shortUrl(link)}`
   conn.sendMessage(m.chat, {
     text: caption, 
     contextInfo: {
@@ -43,16 +43,16 @@ ${link}
     mediaUrl: '', 
     mediaType: 1,
     title: '',
-    body: 'E L A I N A  M U L T I D E V I C E', 
-    thumbnailUrl: 'https://telegra.ph/file/5c636746e3be7de5fb61f.jpg', 
-    sourceUrl: 'https://whatsapp.com/channel/0029VaF8RYn9WtC16ecZws0H',
+    body: 'K A N E K I V 1 6', 
+    thumbnailUrl: 'https://telegra.ph/file/27f1cc911b1fe28ae683f.jpg', 
+    sourceUrl: 'https://whatsapp.com/channel/0029Vag9bvrLSmbRE2I5Oj2h',
     renderLargerThumbnail: true, 
     showAdAttribution: true
     }}}, { quoted: alok})
 }
 handler.help = ['tourl']
-handler.tags = ['tools']
-handler.command = /^(tourl|upload)$/i
+handler.tags = ['الادوات']
+handler.command = ['لرابط']
 export default handler
 
 async function shortUrl(url) {
