@@ -11,7 +11,7 @@ await conn.sendMessage(m.chat, {
             key: m.key,
         }
     })
-  if (!text) throw `Usage: ${usedPrefix}${command} <YouTube Video URL>`;
+  if (!text) throw `مثال: ${usedPrefix}${command} <رابط الفيديو>`;
   let videoUrl = text; // Gunakan URL video YouTube yang diberikan sebagai input
   let videoInfo = await ytdl.getInfo(videoUrl);
   let { videoDetails } = videoInfo;
@@ -51,9 +51,9 @@ await conn.sendMessage(m.chat, {
   });
 };
 
-handler.help = ['ytmp3'].map((v) => v + ' <YouTube Video URL>');
-handler.tags = ['downloader'];
-handler.command = /^(ytmp3|yta)$/i;
+handler.help = ['يوتيوب2'].map((v) => v + ' <رابط الفيديو>');
+handler.tags = ['التحميلات'];
+handler.command = ['يوتيوب2'];
 
 handler.exp = 0;
 handler.diamond = false;
