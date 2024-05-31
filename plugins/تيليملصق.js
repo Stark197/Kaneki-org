@@ -5,7 +5,7 @@ var handler = async (m, { conn, args }) => {
 		let res = await Telesticker(args[0])
 		await m.reply(`Sending ${res.length} stickers...`)
 		if (m.isGroup && res.length > 30) {
-			await m.reply('Number of stickers more than 30, bot will send it in private chat.')
+			await m.reply('عدد الملصقات أكبر من 30 ملصق لكن سأرسلهم في شات خاصة.')
 			for (let i = 0; i < res.length; i++) {
 				conn.sendMessage(m.sender, { sticker: { url: res[i].url }})
 			}
@@ -14,11 +14,11 @@ var handler = async (m, { conn, args }) => {
 				conn.sendMessage(m.chat, { sticker: { url: res[i].url }})
 			}
 		}
-	} else throw 'Input Query / Telesticker Url'
+	} else throw '*لا تنسى الرابط يا حب🚀*'
 }
 handler.help = ['telesticker']
-handler.tags = ['downloader']
-handler.command = /^(telestic?ker|stic?kertele)$/i
+handler.tags = ['التحميلات']
+handler.command = ['تيلي_ملصق']
 handler.limit = true
 
 export default handler
